@@ -1,6 +1,7 @@
 
 var express = require('express');
 var app = express();
+app.use(express.json());
 
 let {PythonShell} = require('python-shell');
 // const options = {
@@ -33,7 +34,8 @@ for(var i = 0; i < femaleModel.length; i++){
 }
 // app.post('/addData/')
 
-app.post('/addData', function(req, res){
+
+app.post('/getSafeRoute', function(req, res){
 	if(req.body.key == "apples"){
 		femaleModel[req.body.long][req.body.lat] += req.body.value;
 		res.send(req.body);
