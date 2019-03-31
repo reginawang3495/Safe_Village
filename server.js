@@ -65,19 +65,18 @@ for(var i = 0; i < crimeModel.length; i++){
 		var long = parseFloat( loc.slice(div+1, loc.length-1 ));
 
 		if ((lat >= 33.5 && lat <= 34.5) && (long <= -118 && long >= -119)) { //check in bounds
-			var arrRow = round( abs(lat-33.5)*100.0 );
-			var arrCol = round( abs(long+118)*100.0 );
-			crimeModel[arrRow][arrCol]++; 
+			crimeModel[round( abs(parseFloat( loc.slice(1,div) );-33.5)*100.0 )][round( abs(parseFloat( loc.slice(div+1, loc.length-1 ));+118)*100.0 )]++; 
 		}
 	}
 	console.log(crimeModel.toString());
 
 
-
+var xaaaaa = 55;
 
 
 
 function calculateValue(sLat, sLong, dLat, dLong){
+	console.log(xaaaaa);
 	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
 	var total = 0;
 	for(var i = 0; i < numTimes; i++){
