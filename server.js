@@ -36,7 +36,7 @@ app.use(express.json());
 // 		femaleModel[i][j] = 0;
 // }
 
-  var allTex  = "";
+  var allText  = "";
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", "alienwareapples.csv", true);
   rawFile.onreadystatechange = function() {
