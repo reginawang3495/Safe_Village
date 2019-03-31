@@ -5,6 +5,7 @@ var app = express();
 
 // 	let {PythonShell} = require('python-shell');
 app.use(express.json());
+var request = require("request");
 
 
 // const options = {
@@ -86,7 +87,10 @@ function calculateValue(sLat, sLong, dLat, dLong){
 
 // app.post('/addData/')
 function calculatePath(path){
-	request(path, function(error, response, body){
+	request({
+  uri: path,
+  method: "POST",
+}, function(error, response, body){
       if (!error && response.statusCode == 200){
           console.log('message sent successfully');
 
