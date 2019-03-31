@@ -36,12 +36,14 @@ var request = require("request");
 // 	for(var j = 0; j < femaleModel[i].length; j++)
 // 		femaleModel[i][j] = 0;
 // }
+    	console.log("newcode    k");
 
   var allText  = "";
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", "model.py", true);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
+    	console.log("exists");
       allText = rawFile.responseText;
     }
   }
