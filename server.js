@@ -79,8 +79,8 @@ for(var i = 0; i < crimeModel.length; i++){
 function calculateValue(sLat, sLong, dLat, dLong){
 	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
 	var total = 0;
-	for(int i = 0; i < numTimes; i++){
-		total += map[round(sLat+i*(dLat-sLat)/numTimes)][round(sLong+i*(dLong-sLong)/numTimes)];// MAPPPPPP TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+	for(var i = 0; i < numTimes; i++){
+		total += map[round( abs(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 )][round( abs(sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];// MAPPPPPP TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 	}
 	return total;
 }
