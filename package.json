@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "jquery-csv": "^0.8.12",
     "python-shell": "^1.0.7",
     "xmlhttprequest": "^1.8.0"
   }

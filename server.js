@@ -5,6 +5,8 @@ var app = express();
 
 // 	let {PythonShell} = require('python-shell');
 app.use(express.json());
+var csv = require('./jquery.csv.js');
+
 
 // const options = {
 //     mode: 'text',
@@ -28,14 +30,59 @@ app.use(express.json());
 //   result = xmlhttp.responseText;
 //   }
 
-var femaleModel = new Array(10);
-for(var i = 0; i < femaleModel.length; i++){
-	femaleModel[i] = new Array(10);
-	for(var j = 0; j < femaleModel[i].length; j++)
-		femaleModel[i][j] = 0;
+// var femaleModel = new Array(10);
+// for(var i = 0; i < femaleModel.length; i++){
+// 	femaleModel[i] = new Array(10);
+// 	for(var j = 0; j < femaleModel[i].length; j++)
+// 		femaleModel[i][j] = 0;
+// }
+
+
+  var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", "alienwareapples.csv", true);
+  rawFile.onreadystatechange = function() {
+    if (rawFile.readyState === 4) {
+      var allText = rawFile.responseText;
+    }
+  }
+  allText.substring(1, allText.length-1);
+  var data = allText.split("\"\n\"");
+
+//initialize 2D array for crime data with zeros
+var crimeModel = new Array(100);
+for(var i = 0; i < crimeModel.length; i++){
+	crimeModel[i] = new Array(100);
+	for(var j = 0; j < crimeModel[i].length; j++)
+		crimeModel[i][j] = 0;
 }
+
+//update crimeModel, 2D array, with number of crime occurrences at each location
+	for (i = 0; i < data.length; i++) {
+		var loc = data[i];
+		var div = loc.indexOf(",");
+
+		var lat = parseFloat( loc.slice(1,div) );
+		var long = parseFloat( loc.slice(div+1, loc.length-1 );
+
+		if ((lat >= 33.5 && lat <= 34.5) && (long <= -118 && long >= -119)) { //check in bounds
+			var arrRow = round( abs(lat-33.5)*100.0 );
+			var arrCol = round( abs(long+118)*100.0 );
+			crimeModel[arrRow][arrCol]++; 
+		}
+	}
+
+
+
+
+
+
 function calculateValue(sLat, sLong, dLat, dLong){
-	return 0;
+	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
+	var total = 0;
+	for(int i = 0; i < numTimes; i++){
+		total += map[round(sLat+i*(dLat-sLat)/numTimes)][round(sLong+i*(dLong-sLong)/numTimes)];// MAPPPPPP TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+	}
+	return total;
 }
 
 // app.post('/addData/')
