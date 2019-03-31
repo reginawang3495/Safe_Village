@@ -131,6 +131,7 @@ app.post('/getSafeRoute', (req, res) =>{
 				pathMin = pathValue;
 			}
 		}
+		console.log("pathNameMinpathNameMinpathNameMinpathNameMinpathNameMinpathNameMin                  " + pathNameMin);
 		res.send(pathNameMin);
 
 	}
