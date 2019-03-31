@@ -47,6 +47,7 @@ var request = require("request");
   }
   allText.substring(1, allText.length-1);
   var data = allText.split("\"\n\"");
+	console.log("tostringgg " +data.toString());
 
 //initialize 2D array for crime data with zeros
 var crimeModel = new Array(100);
