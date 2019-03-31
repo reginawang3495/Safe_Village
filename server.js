@@ -87,6 +87,7 @@ function calculateValue(sLat, sLong, dLat, dLong){
 
 // app.post('/addData/')
 function calculatePath(path){
+	conole.log(path);
 	request({
   uri: path,
   method: "POST"
