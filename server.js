@@ -1,7 +1,7 @@
 
 var express = require('express');
 var app = express();
-app.use(express.json());
+//app.use(express.json());
 
 let {PythonShell} = require('python-shell');
 // const options = {
