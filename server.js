@@ -35,7 +35,8 @@ for(var i = 0; i < femaleModel.length; i++){
 // app.post('/addData/')
 
 
-app.post('/getSafeRoute', function(req, res){
+app.post('/method', function(req, res){
+	console.log(req;
 	if(req.body.key == "apples"){
 		console.log('yayyy');
 		femaleModel[req.body.long][req.body.lat] += req.body.value;
