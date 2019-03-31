@@ -13,7 +13,7 @@ app.use(express.json());
 //     pythonOptions: ['-u'],
 //     scriptPath: 'C:/Program Files (x86)/Cygwin/home/rwang/Safe_Village',
 //   };
-  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+   var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 
 
@@ -36,12 +36,12 @@ app.use(express.json());
 // 		femaleModel[i][j] = 0;
 // }
 
-
+  var allText;
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", "alienwareapples.csv", true);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
-      var allText = rawFile.responseText;
+      allText = rawFile.responseText;
     }
   }
   allText.substring(1, allText.length-1);
