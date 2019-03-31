@@ -13,7 +13,7 @@ const options = {
 
 
 
-PythonShell.run('model.py', options, function (err) {
+PythonShell.run('model.py', null, function (err) {
   if (err) throw err;
   console.log('finished');
 });
