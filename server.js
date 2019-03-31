@@ -40,7 +40,7 @@ var request = require("request");
 
   var allText  = "";
   var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", "model.py", true);
+  rawFile.open("GET", "model.py", false);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
     	console.log("exists");
