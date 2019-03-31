@@ -9,6 +9,8 @@ const options = {
     pythonOptions: ['-u'],
     scriptPath: 'C:/Program Files (x86)/Cygwin/home/rwang/Safe_Village',
   };
+  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
 
 
 PythonShell.run('model.py', options, function (err) {
