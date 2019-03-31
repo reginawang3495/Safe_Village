@@ -114,7 +114,7 @@ function calculatePath(path){
 
 app.post('/getSafeRoute', (req, res) =>{
 	if(req.body.key == "apples"){
-		console.log('yayyy');
+		console.log('req.body.startingLat;             ' + req.body.startingLat);
 		var sLat = req.body.startingLat;
 		var sLong = req.body.startingLong;
 		var dLat = req.body.destinationLat;
