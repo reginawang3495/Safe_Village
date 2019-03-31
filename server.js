@@ -68,7 +68,7 @@ for(var i = 0; i < crimeModel.length; i++){
 			crimeModel[round( abs(parseFloat( loc.slice(1,div) )-33.5)*100.0 )][round( abs(parseFloat( loc.slice(div+1, loc.length-1 ))+118)*100.0 )]++; 
 		}
 	}
-	console.log(crimeModel.toString());
+	console.log("tostringgg " +crimeModel.toString());
 
 
 var xaaaaa = 55;
