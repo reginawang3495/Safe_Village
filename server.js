@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 //app.use(express.json());
 
-// 	let {PythonShell} = require('python-shell');
+ 	let {PythonShell} = require('python-shell');
 app.use(express.json());
 var request = require("request");
 
@@ -36,10 +36,23 @@ var request = require("request");
 // 	for(var j = 0; j < femaleModel[i].length; j++)
 // 		femaleModel[i][j] = 0;
 // }
+  var allText  = "";
+  var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", "alienwareapples.py", true);
+  rawFile.onreadystatechange = function() {
+    if (rawFile.readyState === 4) {
+      console.log("gotIn)");
+      allText = rawFile.responseText;
+
+    }
+  }
+  allText.substring(1, allText.length-1);
+  var data = allText.split("\"\n\"");
+	console.log("tostringgg " +data.toString());
 
   var allText  = "";
   var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", "/alienwareapples.csv", true);
+  rawFile.open("GET", "/alienwareapples.py", true);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
       allText = rawFile.responseText;
@@ -50,7 +63,7 @@ var request = require("request");
 	console.log("tostringgg " +data.toString());
 	  var allText  = "";
   var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", "/temp/alienwareapples.csv", true);
+  rawFile.open("GET", "/temp/alienwareapples.py", true);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
       allText = rawFile.responseText;
@@ -88,7 +101,6 @@ var xaaaaa = 55;
 
 
 function calculateValue(sLat, sLong, dLat, dLong){
-	console.log(xaaaaa);
 	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
 	var total = 0;
 	for(var i = 0; i < numTimes; i++){
