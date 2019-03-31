@@ -4,6 +4,8 @@ var app = express();
 //app.use(express.json());
 
 let {PythonShell} = require('python-shell');
+app.use(express.json());
+
 // const options = {
 //     mode: 'text',
 //     pythonPath: 'C:/Python27/python.exe',
@@ -36,8 +38,8 @@ for(var i = 0; i < femaleModel.length; i++){
 
 
 app.post('/method', function(req, res){
-	console.log(req.body);
-		console.log(res.body);
+	console.log("req:               "+ req.body);
+		console.log("res:             "+res.body);
 
 	if(req.body.key == "apples"){
 		console.log('yayyy');
