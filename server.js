@@ -49,6 +49,6 @@ app.get('/hi', function(req, res){
 	res.send("hi! i work :)");
 });
 
-app.listen(2000, function (){
-	console.log('Listening on port: ' + 2000);
+app.listen(process.env.PORT || 5000, function (){
+	console.log('Listening on port: ' + process.env.PORT);
 });
