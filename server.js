@@ -5,7 +5,6 @@ var app = express();
 
 // 	let {PythonShell} = require('python-shell');
 app.use(express.json());
-var csv = require('./jquery.csv.js');
 
 
 // const options = {
