@@ -89,7 +89,7 @@ function calculateValue(sLat, sLong, dLat, dLong){
 function calculatePath(path){
 	request({
   uri: path,
-  method: "POST",
+  method: "POST"
 }, function(error, response, body){
       if (!error && response.statusCode == 200){
           console.log('message sent successfully');
