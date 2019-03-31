@@ -37,16 +37,12 @@ for(var i = 0; i < femaleModel.length; i++){
 // app.post('/addData/')
 
 
-app.post('/method', (req, res) =>{
-	console.log("req:               "+ req.body.key);
-		console.log("res:             "+res.body);	
-
+app.post('/getSafeRoute', (req, res) =>{
 	if(req.body.key == "apples"){
 		console.log('yayyy');
 		femaleModel[req.body.long][req.body.lat] += req.body.val;
 	}
 		res.send(req.body);
-
 });
 
 app.get('/hi', function(req, res){
