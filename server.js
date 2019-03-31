@@ -34,12 +34,12 @@ for(var i = 0; i < femaleModel.length; i++){
 	for(var j = 0; j < femaleModel[i].length; j++)
 		femaleModel[i][j] = 0;
 }
-function calculateValue(var sLat, var sLong, var dLat, var dLong, var distInMiles){
+function calculateValue(sLat, sLong, dLat, dLong){
 	return 0;
 }
 
 // app.post('/addData/')
-function calculatePath(var path){
+function calculatePath(path){
 	request(path, function(error, response, body){
       if (!error && response.statusCode == 200){
           console.log('message sent successfully');
@@ -48,7 +48,7 @@ function calculatePath(var path){
           var steps = ans.routes[0]['legs'][1]['steps'];
           var total = 0;
           for(var i = 0; i < steps.length; i++){
-          		total += calculateValue(steps[i].start_location.lat, steps[i].start_location.long, steps[i].end_location.lat, steps[i].end_location.long, steps[i].distance);
+          		total += calculateValue(steps[i].start_location.lat, steps[i].start_location.long, steps[i].end_location.lat, steps[i].end_location.long);
           }
 
           return total;
