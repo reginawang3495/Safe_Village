@@ -62,7 +62,7 @@ for(var i = 0; i < crimeModel.length; i++){
 		var div = loc.indexOf(",");
 
 		var lat = parseFloat( loc.slice(1,div) );
-		var long = parseFloat( loc.slice(div+1, loc.length-1 );
+		var long = parseFloat( loc.slice(div+1, loc.length-1 ));
 
 		if ((lat >= 33.5 && lat <= 34.5) && (long <= -118 && long >= -119)) { //check in bounds
 			var arrRow = round( abs(lat-33.5)*100.0 );
