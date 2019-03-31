@@ -13,7 +13,7 @@ app.use(express.json());
 //     pythonOptions: ['-u'],
 //     scriptPath: 'C:/Program Files (x86)/Cygwin/home/rwang/Safe_Village',
 //   };
-//  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 
 
