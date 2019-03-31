@@ -39,7 +39,18 @@ var request = require("request");
 
   var allText  = "";
   var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", "alienwareapples.csv", true);
+  rawFile.open("GET", "/alienwareapples.csv", true);
+  rawFile.onreadystatechange = function() {
+    if (rawFile.readyState === 4) {
+      allText = rawFile.responseText;
+    }
+  }
+  allText.substring(1, allText.length-1);
+  var data = allText.split("\"\n\"");
+	console.log("tostringgg " +data.toString());
+	  var allText  = "";
+  var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", "/temp/alienwareapples.csv", true);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
       allText = rawFile.responseText;
@@ -87,6 +98,7 @@ function calculateValue(sLat, sLong, dLat, dLong){
 }
 
 // app.post('/addData/')
+var request = require("request");
 function calculatePath(path){
 	console.log(path);
 	request({
