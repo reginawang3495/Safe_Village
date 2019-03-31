@@ -65,7 +65,7 @@ for(var i = 0; i < crimeModel.length; i++){
 		var long = parseFloat( loc.slice(div+1, loc.length-1 ));
 
 		if ((lat >= 33.5 && lat <= 34.5) && (long <= -118 && long >= -119)) { //check in bounds
-			crimeModel[round( abs(parseFloat( loc.slice(1,div) );-33.5)*100.0 )][round( abs(parseFloat( loc.slice(div+1, loc.length-1 ));+118)*100.0 )]++; 
+			crimeModel[round( abs(parseFloat( loc.slice(1,div) )-33.5)*100.0 )][round( abs(parseFloat( loc.slice(div+1, loc.length-1 ))+118)*100.0 )]++; 
 		}
 	}
 	console.log(crimeModel.toString());
