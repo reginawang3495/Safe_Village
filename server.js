@@ -36,23 +36,10 @@ var request = require("request");
 // 	for(var j = 0; j < femaleModel[i].length; j++)
 // 		femaleModel[i][j] = 0;
 // }
-  var allText  = "";
-  var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", "alienwareapples.py", true);
-  rawFile.onreadystatechange = function() {
-    if (rawFile.readyState === 4) {
-      console.log("gotIn)");
-      allText = rawFile.responseText;
-
-    }
-  }
-  allText.substring(1, allText.length-1);
-  var data = allText.split("\"\n\"");
-	console.log("tostringgg " +data.toString());
 
   var allText  = "";
   var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", "/alienwareapples.py", true);
+  rawFile.open("GET", "model.py", true);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
       allText = rawFile.responseText;
@@ -60,18 +47,7 @@ var request = require("request");
   }
   allText.substring(1, allText.length-1);
   var data = allText.split("\"\n\"");
-	console.log("tostringgg " +data.toString());
-	  var allText  = "";
-  var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", "/temp/alienwareapples.py", true);
-  rawFile.onreadystatechange = function() {
-    if (rawFile.readyState === 4) {
-      allText = rawFile.responseText;
-    }
-  }
-  allText.substring(1, allText.length-1);
-  var data = allText.split("\"\n\"");
-	console.log("tostringgg " +data.toString());
+	
 
 //initialize 2D array for crime data with zeros
 var crimeModel = new Array(100);
@@ -93,10 +69,8 @@ for(var i = 0; i < crimeModel.length; i++){
 			crimeModel[round( abs(parseFloat( loc.slice(1,div) )-33.5)*100.0 )][round( abs(parseFloat( loc.slice(div+1, loc.length-1 ))+118)*100.0 )]++; 
 		}
 	}
-	console.log("tostringgg " +crimeModel.toString());
 
 
-var xaaaaa = 55;
 
 
 
