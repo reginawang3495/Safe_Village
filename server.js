@@ -120,7 +120,7 @@ app.post('/getSafeRoute', (req, res) =>{
 		for(var i = 0; i < 4; i++){
 			var pathName = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyDHlFu8C9EcD_R88OuCkKdDKiKMWhbkwYI&mode=walking&origin="+sLat+
 			","+sLong+"&destination="+dLat+","+dLong+"&waypoints="+(sLat+0.01*(i%2)*(i-2))+","+(sLong+0.01*((1+i)%2)*(i-1));
-			var pathValue = calculatePathTotal(pathName);
+			var pathValue = calculatePath(pathName);
 			if(pathValue != 0 && (i = 0 || pathMin > pathValue)){
 				pathNameMin = pathName;
 				pathMin = pathValue;
