@@ -38,7 +38,7 @@ for(var i = 0; i < femaleModel.length; i++){
 
 
 app.post('/method', (req, res) =>{
-	console.log("req:               "+ req.body);
+	console.log("req:               "+ req.body.key);
 		console.log("res:             "+res.body);	
 
 	if(req.body.key == "apples"){
