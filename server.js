@@ -36,7 +36,7 @@ for(var i = 0; i < femaleModel.length; i++){
 
 
 app.post('/method', function(req, res){
-	console.log(req;
+	console.log(req);
 	if(req.body.key == "apples"){
 		console.log('yayyy');
 		femaleModel[req.body.long][req.body.lat] += req.body.value;
