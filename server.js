@@ -34,15 +34,56 @@ for(var i = 0; i < femaleModel.length; i++){
 	for(var j = 0; j < femaleModel[i].length; j++)
 		femaleModel[i][j] = 0;
 }
+function calculateValue(var sLat, var sLong, var dLat, var dLong, var distInMiles){
+	return 0;
+}
+
 // app.post('/addData/')
+function calculatePath(var path){
+	request(path, function(error, response, body){
+      if (!error && response.statusCode == 200){
+          console.log('message sent successfully');
+
+          var ans = JSON.parse(body);
+          var steps = ans.routes[0]['legs'][1]['steps'];
+          var total = 0;
+          for(var i = 0; i < steps.length; i++){
+          		total += calculateValue(steps[i].start_location.lat, steps[i].start_location.long, steps[i].end_location.lat, steps[i].end_location.long, steps[i].distance);
+          }
+
+          return total;
+      } else {
+          console.log('error == ' + error);
+          return -1;
+      }
+  });
+	return 0;
+}
 
 
 app.post('/getSafeRoute', (req, res) =>{
 	if(req.body.key == "apples"){
 		console.log('yayyy');
-		femaleModel[req.body.long][req.body.lat] += req.body.val;
+		var sLat = req.body.startingLat;
+		var sLong = req.body.startingLong;
+		var dLat = req.body.destinationLat;
+		var dLong = req.body.destinationLong;
+
+		var pathNameMin;
+		var pathMin;
+		for(var i = 0; i < 4; i++){
+			var pathName = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyDHlFu8C9EcD_R88OuCkKdDKiKMWhbkwYI&mode=walking&origin="+sLat+
+			","+sLong+"&destination="+dLat+","+dLong+"&waypoints="+(sLat+0.01*(i%2)*(i-2))+","+(sLong+0.01*((1+i)%2)*(i-1));
+			var pathValue = calculatePathTotal(pathName);
+			if(pathValue != 0 && (i = 0 || pathMin > pathValue)){
+				pathNameMin = pathName;
+				pathMin = pathValue;
+			}
+		}
+		res.send(path);
+
 	}
-		res.send(req.body);
+		res.send("bad request");
 });
 
 app.get('/hi', function(req, res){
