@@ -68,7 +68,7 @@ function calculatePath(path){
 			var steps = ans.routes[0].legs[1].steps;
 			var total = 0;
 			for(var i = 0; i < steps.length; i++){
-				total += calculateValue(steps[i].start_location.lat, steps[i].start_location.long, steps[i].end_location.lat, steps[i].end_location.long);
+				total += calculateValue(steps[i].start_location.lat, steps[i].start_location.lng, steps[i].end_location.lat, steps[i].end_location.lng);
 			}
 
 			return total;
