@@ -56,6 +56,7 @@ function calculatePath(path){
 	console.log(path);
 	request({
 		uri: path,
+		body : jsonObj,
 		method: "POST"
 	}, function(error, response, body){
 		if (!error && response.statusCode == 200){
