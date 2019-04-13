@@ -57,7 +57,7 @@ function calculatePath(path){
 	request({
 		uri: path,
 		body : jsonObj,
-		method: "POST"
+		method: "GET"
 	}, function(error, response, body){
 		if (!error && response.statusCode == 200){
 			console.log('message sent successfully');
