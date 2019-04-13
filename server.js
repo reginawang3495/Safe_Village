@@ -46,6 +46,7 @@ for (i = 0; i < data.length; i++) {
 	for(var i = 0; i < numTimes; i++){
 		total += crimeModel[round( abs(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 )][round( abs(sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];// MAPPPPPP TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 	}
+	console.log("total is: " + total);
 	return total;
 }
 
