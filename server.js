@@ -10,7 +10,7 @@ var request = require("request");
 var allText  = "";
 request.get('https://reginawang99.github.io/Oasis/lapd_2009.csv', function (error, response, body) {
 	if (!error && response.statusCode == 200) {
-		allText = body;
+		allText = body; 
 
 
 		allText.substring(1, allText.length-1);
