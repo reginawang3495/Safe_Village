@@ -60,8 +60,7 @@ function calculatePath(path){
 		if (!error && response.statusCode == 200){
 			console.log('message sent successfully');
 
-			var ans = JSON.parse(body);
-			var steps = ans.routes[0]['legs'][1]['steps'];
+			var steps = body.routes[0].legs.[1].steps;
 			var total = 0;
 			for(var i = 0; i < steps.length; i++){
 				total += calculateValue(steps[i].start_location.lat, steps[i].start_location.long, steps[i].end_location.lat, steps[i].end_location.long);
