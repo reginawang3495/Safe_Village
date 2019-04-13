@@ -42,6 +42,7 @@ for (i = 0; i < data.length; i++) {
 //	console.log(crimeModel.toString());
 	function calculateValue(sLat, sLong, dLat, dLong){
 	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
+	console.log("numTime: "+numTimes);
 	var total = 0;
 	for(var i = 0; i < numTimes; i++){
 		total += crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];
@@ -63,7 +64,6 @@ function calculatePath(path){
 		if (!error && response.statusCode == 200){
 			console.log('message sent successfully');
 			var ans = JSON.parse(body);
-			console.log("here is body: " + body);
 			var steps = ans.routes[0].legs[1].steps;
 			var total = 0;
 			for(var i = 0; i < steps.length; i++){
