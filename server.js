@@ -53,7 +53,7 @@ for (i = 0; i < data.length; i++) {
 
 
 	}
-	console.log(cimeModel.toString());
+	console.log(crimeModel.toString());
 	return total;
 }
 
