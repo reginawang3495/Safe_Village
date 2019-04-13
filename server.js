@@ -39,7 +39,7 @@ for (i = 0; i < data.length; i++) {
 			crimeModel[Math.round( Math.abs(parseFloat( loc.slice(1,div) )-33.5)*100.0 )][Math.round( Math.abs(parseFloat( loc.slice(div+1, loc.length-1 ))+118)*100.0 )]++; 
 		}
 	}
-	console.log(crimeModel.toString());
+//	console.log(crimeModel.toString());
 	function calculateValue(sLat, sLong, dLat, dLong){
 	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
 	var total = 0;
