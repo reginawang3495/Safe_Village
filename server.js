@@ -16,7 +16,7 @@ request.get('https://reginawang99.github.io/Oasis/lapd_2009.csv', function (erro
 		allText.substring(1, allText.length-1);
 		var data = allText.split("\"\n\"");
 
-
+ 
 //initialize 2D array for crime data with zeros
 var crimeModel = new Array(100);
 for(var i = 0; i < crimeModel.length; i++){
