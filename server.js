@@ -44,9 +44,11 @@ for (i = 0; i < data.length; i++) {
 	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
 	var total = 0;
 	for(var i = 0; i < numTimes; i++){
-		total += crimeModel[round( abs(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 )][round( abs(sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];// MAPPPPPP TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+		total += crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];
+		console.log("total is: " + total);
+		console.log(crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )]);
+
 	}
-	console.log("total is: " + total);
 	return total;
 }
 
