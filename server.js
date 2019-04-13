@@ -99,7 +99,7 @@ app.post('/getSafeRoute', (req, res) =>{
 		}
 		console.log("pathNameMinpathNameMinpathNameMinpathNameMinpathNameMinpathNameMin                  " + pathNameMin);
 		res.send(pathNameMin);
-
+ 
 	}
 	res.send("bad request");
 });
