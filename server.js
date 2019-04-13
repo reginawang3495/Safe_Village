@@ -53,6 +53,7 @@ for (i = 0; i < data.length; i++) {
 
 
 	}
+	console.log(cimeModel.toString());
 	return total;
 }
 
