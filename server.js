@@ -47,11 +47,9 @@ for (i = 0; i < data.length; i++) {
 	var total = 0;
 	for(var i = 0; i < numTimes + 1; i++){
 		total += crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];
-		console.log("total is: " + total);
 
 
 	}
-		console.log("finaltotal is: " + total);
 
 	return total;
 }
@@ -72,6 +70,7 @@ function calculatePath(path){
 			for(var i = 0; i < steps.length; i++){
 				total += calculateValue(steps[i].start_location.lat, steps[i].start_location.lng, steps[i].end_location.lat, steps[i].end_location.lng);
 			}
+		console.log("finaltotal is: " + total);
 
 			return total;
 		} else {
