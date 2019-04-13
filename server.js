@@ -42,8 +42,6 @@ for (i = 0; i < data.length; i++) {
 //	console.log(crimeModel.toString());
 	function calculateValue(sLat, sLong, dLat, dLong){
 	var numTimes = Math.sqrt((sLat-dLat)*(sLat-dLat) + (sLong-dLong)*(sLong-dLong))/.001; //every .07 miles
-	console.log("numTime: "+numTimes);
-	console.log("sLat + sLong + dLat + dLong)"+ sLat + sLong + dLat + dLong);
 	var total = 0;
 	for(var i = 0; i < numTimes + 1; i++){
 		total += crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];
