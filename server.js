@@ -46,9 +46,10 @@ for (i = 0; i < data.length; i++) {
 	console.log("sLat + sLong + dLat + dLong)"+ sLat + sLong + dLat + dLong);
 	var total = 0;
 	for(var i = 0; i < numTimes + 1; i++){
-		total += crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];
 		console.log("total is: " + total);
 		console.log(crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )]);
+		total += crimeModel[Math.round( Math.abs(parseFloat(sLat+i*(dLat-sLat)/numTimes-33.5)*100.0 ) )][Math.round( Math.abs( sLong+i*(dLong-sLong)/numTimes+118)*100.0 )];
+
 
 	}
 	return total;
