@@ -1,4 +1,3 @@
-
 var express = require('express');
 var app = express();
 app.use(express.json());
@@ -10,13 +9,13 @@ var request = require("request");
 var allText  = "";
 request.get('https://reginawang99.github.io/Oasis/lapd_2009.csv', function (error, response, body) {
 	if (!error && response.statusCode == 200) {
-		allText = body; 
+		allText = body;
 
 
 		allText.substring(1, allText.length-1);
 		var data = allText.split("\"\n\"");
 
- 
+
 //initialize 2D array for crime data with zeros
 var crimeModel = new Array(100);
 for(var i = 0; i < crimeModel.length; i++){
@@ -32,11 +31,11 @@ for (i = 0; i < data.length; i++) {
 	var loc = data[i];
 	var div = loc.indexOf(",");
 
-	var lat = parseFloat( loc.slice(1,div) );	
+	var lat = parseFloat( loc.slice(1,div) );
 	var long = parseFloat( loc.slice(div+1, loc.length-1 ));
-	
+
 		if ((lat >= 33.5 && lat <= 34.5) && (long <= -118.0 && long >= -119)) { //check in bounds
-			crimeModel[Math.round( Math.abs(parseFloat( loc.slice(1,div) )-33.5)*100.0 )][Math.round( Math.abs(parseFloat( loc.slice(div+1, loc.length-1 ))+118)*100.0 )]++; 
+			crimeModel[Math.round( Math.abs(parseFloat( loc.slice(1,div) )-33.5)*100.0 )][Math.round( Math.abs(parseFloat( loc.slice(div+1, loc.length-1 ))+118)*100.0 )]++;
 		}
 	}
 //	console.log(crimeModel.toString());
@@ -88,22 +87,42 @@ app.post('/getSafeRoute', (req, res) =>{
 		var dLat = req.body.destinationLat;
 		var dLong = req.body.destinationLong;
 
+		var count = 0;
+		var num;
+		var originPath;
 		var pathNameMin;
 		var pathMin;
 		var pathName;
 		var pathValue;
-		for(var i = 0; i < 4; i++){
-			pathName = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyDHlFu8C9EcD_R88OuCkKdDKiKMWhbkwYI&mode=walking&origin="+sLat+
-			","+sLong+"&destination="+dLat+","+dLong+"&waypoints="+(sLat+0.01*(i%2)*(i-2))+","+(sLong+0.01*((1+i)%2)*(i-1));
-			pathValue = calculatePath(pathName);
-			if(pathValue != -1 && (i == 0 || pathMin > pathValue)){
-				pathNameMin = pathName;
-				pathMin = pathValue;
+		var continue = true;
+
+		var pathNameFinal = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyDHlFu8C9EcD_R88OuCkKdDKiKMWhbkwYI&mode=walking&origin="+sLat+
+		","+sLong+"&destination="+dLat+","+dLong;
+		originPath = calculatePath(pathName);
+		while(continue){
+			num = 0;
+			for(var i = 0; i < 4; i++){
+				pathName = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyDHlFu8C9EcD_R88OuCkKdDKiKMWhbkwYI&mode=walking&origin="+sLat+
+				","+sLong+"&destination="+dLat+","+dLong+"&waypoints="+(sLat+0.01*(i%2)*(i-2))+","+(sLong+0.01*((1+i)%2)*(i-1));
+				pathValue = calculatePath(pathName);
+
+				if(pathValue != -1 && (i == 0 || pathMin > pathValue) && ((pathValue+count) < (2*originPath+1)) {
+					pathNameMin = pathName;
+					pathMin = pathValue;
+					num = i+1;
+					pathNameFinal += "|"(sLat+0.01*(i%2)*(i-2))+","+(sLong+0.01*((1+i)%2)*(i-1));
+				}
+			}
+
+			if(num > 0){
+				sLat = 0.01*((num-1)%2)*((num-1)-2)n;
+				sLong = 0.01*((1+(num-1))%2)*(num-2);
+				count += 0.01*(1%2)*(2-1);
 			}
 		}
+
 		console.log("pathNameMinpathNameMinpathNameMinpathNameMinpathNameMinpathNameMin                  " + pathNameMin);
 		res.send(pathNameMin);
- 
 	}
 	res.send("bad request");
 });
